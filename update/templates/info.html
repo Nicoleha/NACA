@@ -4,66 +4,63 @@
 {% block content %}
 {{block.super}}
 <head>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Acme|Pacifico|Playfair+Display" rel="stylesheet">
 
 </head>
-<body>
+<body style="background-color:rgb(138, 156, 138);font-family: 'Fira Sans', sans-serif;font-size: 23px;">
     <div class = "container">
-        <div class="jumbotron">
-            <h4><center  style="font-family: monospace;">{{user.username|upper}},</center></h4>
-            <p style="font-family: monospace;"> <center style="font-family: monospace;text-shadow: cadetblue;"><strong>Below are quetions that have been asked by our users if you feel like you can help PLEASE DO ! <br>You can add by commenting anyhting that you feel might be beneficial to the user.<br>Just Click the links below!</strong></center></p>
-        </div> 
-        <h1><center>{{post.title}}</center></h1>
+       
+        <h1><center>{{post.title|upper}}</center></h1>
         <div class="row">
                 <div class="col-md-6">
                     <img src="{{post.picture.url}}" alt="image" style="height:300px;width:500px;" class="image">
                 </div>
                 <div class="col-md-6">
-                        <p>{% autoescape on %}
-                                {{post.description| safe}}
-                    {% endautoescape %}</p>
+                        <video width="400" controls>
+                                <source src="{{post.demo_video.url}}" type="video/mp4">
+                                <source src="{{post.demo_video.url}}" type="video/ogg">
+                                Your browser does not support HTML5 video.
+                        </video>
+                       
                 </div>
         </div>
         <br>
         <br>
-        <div class="row">
-                <div class="col-md-6">
+       
                      <!-- video -->
-                    <video width="400" controls>
-                            <source src="{{post.demo_video.url}}" type="video/mp4">
-                            <source src="{{post.demo_video.url}}" type="video/ogg">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="col-md-6">
-                
-                </div>
-       </div>
+                     <p style="font-family: 'Fira Sans', sans-serif;font-size: 33px;">{% autoescape on %}
+                            {{post.description| safe}}
+                {% endautoescape %}</p>
+              
+        
        <h3><center>EVENT LOCATION</center></h3>
-       <p>DISTRICT {{post.district}}</p>
-       <p>SECTOR {{post.sector}}</p>
-       <p>CELL {{post.cell}}</p>
-       <p>STREET {{post.street}}</p>
-       <p>BUILDING {{post.building}}</p>
-       <p>HELD ON {{post.date_of_event}}</p><p>DURATION {{post.duration}}</p>
-
+       <div class="well">
+            <p><strong>DISTRICT:</strong> {{post.district}}</p>
+            <p><strong>SECTOR:</strong> {{post.sector}}</p>
+            <p><strong>CELL:</strong> {{post.cell}}</p>
+            <p><strong>STREET: </strong>{{post.street}}</p>
+            <p><strong>BUILDING:</strong> {{post.building}}</p>
+            <p><strong>HELD ON:</strong> {{post.date_of_event}}</p>
+            <p><strong>DURATION:</strong> {{post.duration}} hours</p>
+    </div>
        <h3><center>PRICES</center></h3>
 
        {% for wis in ticket %}
 
 
        <div class="well" id="pe">
-            <p>{{wis.price}}</p>
+  
 
-            <p>TICKET .{{tic.ticket_name}}</p>
-            <p>PRICE {{tic.price}}</p>
-            <p>NUMBER OF TICKETS {{tic.number_of_tickets}}</p>
+            <p><strong>TICKET:</strong> {{wis.ticket_name}}</p>
+            <p><strong>PRICE:</strong> {{wis.price}}</p>
+            <p><strong>NUMBER OF TICKETS:</strong> {{wis.number_of_tickets}}</p>
             
     
         </div>
         {% endfor %}
 
-        <button><a href="{%url 'ticket'  post.id%}" >Buy Ticket</a></button>
+        <center><button style="color:rgb(138, 156, 138);padding: 20px;border-radius: 10px;"><a href="{%url 'ticket'  post.id%}" style="color:rgb(138, 156, 138);font-size: 20px;"><strong>BUY TICKET</strong></a></button></center>
 
     </div>
 </body>

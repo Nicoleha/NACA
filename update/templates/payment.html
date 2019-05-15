@@ -8,22 +8,55 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+ <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
  <title>New Article</title>
  {{form.media}}
 
 {% block styles %} {% bootstrap_css %}
  <link rel="stylesheet" href="{% static 'css/baseinsto.css' %}"> {% endblock %}
-
+<style>
+  table{
+    padding: 5px;
+    /* border: 7px solid white; */
+    border-collapse: collapse;
+    background-color: white;
+    width:100%;
+    height:60%;
+  }
+  th{
+    padding: 10px;
+    /* border: 5px solid white; */
+    border-collapse: collapse;
+    color: rgb(138, 156, 138);
+    font-family: calibri;
+    text-align: center;
+    font-size: 30px;
+  }
+  tr{
+    padding: 5px;
+    /* border: 5px solid white; */
+    border-collapse: collapse;
+  }
+   td{
+    padding: 5px;
+    /* border: 5px solid white; */
+    border-collapse: collapse;
+    color: rgb(138, 156, 138);
+    text-align: center;
+    font-family: calibri;
+    font-size: 20px;
+  }
+</style>
 </head>
 
-<body>
+<body style="background-color:rgb(138, 156, 138);font-family: 'Fira Sans', sans-serif;font-size: 23px;">
 
-   <div class="container" id="imj">
+   <div class="container" id="imj" style="padding-top: 130px;">
+   
        <div class="row" >
           <table>
               <tr>
-                <th>TICKET</th>
+                <th >TICKET</th>
                 <th>PRICE</th>
                 <th>PURCHASED TICKETS</th>
                 <th>TOTAL PRICE</th>
@@ -35,15 +68,15 @@
                 <td>{{price}}</td>
               </tr>
           </table>
-        
-        <h2>{{remain}}</h2>
+      <br>
+      <br>
+     
 
-           <h1> WELCOME TO Payment</h1>
  <form  action="{%url 'payment' id=tpayment.id%}" method="post" enctype="multipart/form-data">
    {%csrf_token%}
 
    {% bootstrap_form form%}
-   <input type="submit" class="btn btn-success btn-lg" value="Buy">
+   <input type="submit" class="btn btn-success btn-lg" value="BUY"  style="color:rgb(138, 156, 138);padding: 20px;border-radius: 10px;background-color: white;font-size: 20px;">
  </form>
 
   {% block scripts %}

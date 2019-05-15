@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-      
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
         <title>New Article</title>
         {{form.media}}
       
@@ -15,7 +15,7 @@
       
       </head>
       
-<body style="background-color: chocolate;">
+<body style="background-color:rgb(138, 156, 138);font-family: 'Fira Sans', sans-serif;font-size: 23px;">
     <div class = "container">
    <h2><center>enter any event </center></h2>
         <form  action="{%url 'event'%}" method="post" enctype="multipart/form-data">
@@ -23,7 +23,7 @@
 
    
     {% bootstrap_form form layout="vertical" size="large" label_class="form-label col-md-3" %}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
+    <center><input type="submit" class="btn btn-success btn-lg" value="Post" style="color:rgb(138, 156, 138);padding: 20px;border-radius: 10px;background-color: white;font-size: 20px;"></center>
   </form>
 
   {% block scripts %}

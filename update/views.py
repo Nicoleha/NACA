@@ -26,8 +26,6 @@ def profile(request,edit):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
-            profile.bio=form.cleaned_data['bio']
-            profile.more=form.cleaned_data['more']
             profile.profile_pic = form.cleaned_data['profile_pic']
             profile.email = form.cleaned_data['email']
             profile.first_name = form.cleaned_data['first_name']
@@ -164,7 +162,7 @@ def payments(request,id):
         if form.is_valid():
             pay = form.save(commit=False)
             data['amount'] = str(price)
-            data['phonenumber'] = pay.phonenumber
+            data['phone_number'] = pay.phone_number
             data['clienttime'] = '1556616823718'
             data['action'] = "deposit"
             data['appToken'] = "9563d7e60dc40e0315bc"

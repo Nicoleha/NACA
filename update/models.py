@@ -16,7 +16,6 @@ class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,null=True)
     profile_pic=models.ImageField(upload_to='images/',default='images/avatar.jpg')
     bio= HTMLField()
-    more= HTMLField()
     first_name=models.CharField(max_length=100,null=True)
     last_name=models.CharField(max_length=100,null=True)
     phone_number=models.IntegerField(null=True)
@@ -102,7 +101,7 @@ class Tpayment(models.Model):
 class Payment(models.Model):
     tpayment = models.ForeignKey(Tpayment,on_delete=models.CASCADE, null=True)
     event = models.ForeignKey(Event,on_delete=models.CASCADE, null=True)
-    phonenumber=models.CharField(max_length=100,null=True)
+    phone_number=models.CharField(max_length=100,null=True)
     amount=models.CharField(max_length=100,null=True)
     number_of_tickets =  models.PositiveIntegerField(null=True)
     post_date = models.DateTimeField(auto_now_add=True, null=True)

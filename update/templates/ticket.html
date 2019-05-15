@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
   <title>New Project</title>
   {{form.media}}
 
@@ -18,10 +18,12 @@
 
 </head>
 
-<body>
-                    
-        
-<div class="container" id="index"   >
+<body style="background-color:rgb(138, 156, 138);font-family: 'Fira Sans', sans-serif;font-size: 23px;">
+    <br>
+    <br>
+    <br>                
+  <h1><center>{{post.title|upper}}</center></h1>
+<div class="container" style="padding-top: 100px;">
                 
                 
   <form  action="{%url 'ticket' post.id %}" method="post" enctype="multipart/form-data">
@@ -29,13 +31,13 @@
     
     {% bootstrap_form form %}
     <select  name="filter_by_category" required>
-        <option selected="selected" disabled>Objects on page:</option>
+        <option selected="selected" disabled>Ticket Category</option>
       {% for tic in ticket %}     
       <option value="{{tic.id}}">{{tic.ticket_name}}</option>
       {% endfor %}
     </select>
-   
-    <input type="submit" class="btn btn-success btn-lg" value="Buy">
+  
+    <center><input type="submit" class="btn btn-success btn-lg" value="BUY"  style="color:rgb(138, 156, 138);padding: 20px;border-radius: 10px;background-color: white;font-size: 20px;"></center>
   </form>
 
    {% block scripts %}

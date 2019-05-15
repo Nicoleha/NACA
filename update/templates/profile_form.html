@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
   <title>New Post</title>
   {{form.media}}
 
@@ -15,21 +15,18 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endblock %}
 
 </head>
-<body style="background-color: chocolate;">
+<body style="background-color:rgb(138, 156, 138);font-family: 'Fira Sans', sans-serif;font-size: 23px;">
   <br>
   <br>
 <div class="container">
 <br>
 <br>
-    <div class="jumbotron" style="background-color:skyblue;">
-        <h4><center  style="font-family: monospace;">{{user.username|upper}},</center></h4>
-        <p style="font-family: monospace;"> <center style="font-family: monospace;text-shadow: cadetblue;"><strong>This form belo is for edit your profile and you can also add your contact.</strong></center></p>
-    </div>     
+       
   <form  action="{%url 'profile' user.id %}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
+    <center><input type="submit" class="btn btn-success btn-lg" value="EDIT"  style="color:rgb(138, 156, 138);padding: 20px;border-radius: 10px;background-color: white;font-size: 20px;"></center>
   </form>
 </div>
    {% block scripts %}
